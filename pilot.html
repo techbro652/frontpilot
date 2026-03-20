@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontari — Free 30-Day Founding Client Program (2 Spots Left)</title>
+  <meta name="description" content="We're looking for 2-3 local businesses to get our full AI front desk service completely free for 30 days. No cost. No catch. Just results — and honest feedback." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a0f1e;
+      --navy2: #111827;
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --gray: #6b7280;
+      --gray-light: #f3f4f6;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+      --gold: #f59e0b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--gradient);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-cta {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ─── SPOTS BANNER ─── */
+    .spots-banner {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.02em;
+      margin-top: 64px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.15);
+      border: 1px solid rgba(245,158,11,0.5);
+      color: #fcd34d;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 70px);
+      font-weight: 900;
+      color: white;
+      line-height: 1.05;
+      max-width: 900px;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+    .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .gold {
+      background: linear-gradient(135deg, #f59e0b, #fcd34d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: #94a3b8;
+      max-width: 620px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: white;
+      padding: 18px 40px;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(245,158,11,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,0.5); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 18px 36px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); }
+
+    .spots-counter {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .spot-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+    }
+    .spot-dot.taken { background: #ef4444; }
+    .spot-dot.open { background: #10b981; }
+    .spots-label { color: #94a3b8; font-size: 14px; font-weight: 500; }
+    .spots-label strong { color: white; }
+
+    .hero-proof {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-proof-item {
+      color: #64748b;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-proof-item svg { color: var(--green); }
+
+    /* ─── HERO DASHBOARD ─── */
+    .hero-dashboard {
+      margin-top: 64px;
+      max-width: 900px;
+      width: 100%;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+    }
+    .dashboard-bar {
+      background: #1f2937;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ef4444; }
+    .dot-y { background: #f59e0b; }
+    .dot-g { background: #10b981; }
+    .dashboard-content {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dash-card {
+      background: #1a2234;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .dash-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .dash-card-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+    }
+    .dash-card-value.green { color: var(--green); }
+    .dash-card-value.blue { color: var(--blue-light); }
+    .dash-card-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .dash-activity {
+      grid-column: 1 / -1;
+      background: #1a2234;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .dash-activity-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .activity-text { font-size: 13px; color: #94a3b8; line-height: 1.4; }
+    .activity-text strong { color: white; }
+    .activity-time { font-size: 11px; color: #475569; margin-top: 2px; }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(30px, 4.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    /* ─── WHAT YOU GET ─── */
+    .get-section { background: #f8fafc; }
+    .get-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .get-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .get-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    }
+    .get-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .get-icon.blue { background: #dbeafe; }
+    .get-icon.cyan { background: #cffafe; }
+    .get-icon.green { background: #d1fae5; }
+    .get-icon.purple { background: #ede9fe; }
+    .get-icon.orange { background: #ffedd5; }
+    .get-icon.pink { background: #fce7f3; }
+    .get-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .get-card p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+    .get-card .value-tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: #d1fae5;
+      color: #065f46;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* ─── THE DEAL ─── */
+    .deal-section { background: var(--navy); color: white; }
+    .deal-box {
+      max-width: 780px;
+      margin: 56px auto 0;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 56px;
+      text-align: center;
+    }
+    .deal-emoji { font-size: 56px; margin-bottom: 24px; }
+    .deal-box h3 {
+      font-size: 32px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+    .deal-box p {
+      font-size: 18px;
+      color: #94a3b8;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    .deal-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .deal-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      color: #e2e8f0;
+    }
+    .deal-check {
+      width: 24px; height: 24px;
+      background: rgba(16,185,129,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--green);
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    /* ─── WHO WE WANT ─── */
+    .who-section { background: white; }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .who-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .who-emoji { font-size: 40px; margin-bottom: 14px; }
+    .who-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .who-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── HOW IT WORKS ─── */
+    .how-section { background: #f8fafc; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 56px;
+    }
+    .step { text-align: center; padding: 0 16px; }
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--gradient);
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── ROI ─── */
+    .roi-section { background: white; }
+    .roi-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .roi-card {
+      text-align: center;
+      padding: 40px 24px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+    }
+    .roi-number {
+      font-size: 48px;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .roi-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .roi-sub { font-size: 13px; color: var(--gray); }
+
+    /* ─── FAQ ─── */
+    .faq-section { background: #f8fafc; }
+    .faq-list { max-width: 720px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .faq-q { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--gray); line-height: 1.7; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      background: var(--navy);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .final-cta p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 540px;
+      margin: 0 auto 40px;
+    }
+    .final-cta .btn-primary { font-size: 18px; padding: 20px 52px; }
+    .final-spots {
+      margin-top: 24px;
+      font-size: 14px;
+      color: #64748b;
+    }
+    .final-spots strong { color: #fcd34d; }
+
+    /* ─── LOGO BAR ─── */
+    .logo-bar {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .logo-bar p {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .logo-bar-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .biz-type {
+      font-size: 15px;
+      font-weight: 600;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060b18;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo { font-size: 20px; font-weight: 800; color: white; margin-bottom: 8px; }
+    .footer-tagline { font-size: 14px; color: #475569; margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: #64748b; text-decoration: none; }
+    .footer-links a:hover { color: white; }
+    .footer-copy { margin-top: 28px; font-size: 13px; color: #374151; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .dashboard-content { grid-template-columns: repeat(2, 1fr); }
+      .deal-box { padding: 36px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; max-width: 320px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.88 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      Frontari
+    </a>
+    <a href="#apply" class="nav-cta">Apply for a Free Spot →</a>
+  </div>
+</nav>
+
+<!-- ─── SPOTS BANNER ─── -->
+<div class="spots-banner">
+  🔥 Founding Client Program — Only 3 spots available. 2 already claimed. 1 left.
+</div>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-badge">
+    ⭐ Founding Client Program · 30 Days · Completely Free
+  </div>
+
+  <h1>We'll Run Your AI Front Desk<br /><span class="gold">Free for 30 Days.</span><br />No Catch.</h1>
+
+  <p class="hero-sub">
+    We're a new agency and we're looking for 2–3 local businesses to work with for free. You get our full done-for-you AI front desk service — calls, reviews, chats, appointments — at zero cost. All we ask for is honest feedback.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#apply" class="btn-primary">Apply for the Last Spot →</a>
+    <a href="#what-you-get" class="btn-ghost">See What's Included</a>
+  </div>
+
+  <div class="spots-counter">
+    <div class="spot-dot taken"></div>
+    <div class="spot-dot taken"></div>
+    <div class="spot-dot open"></div>
+    <span class="spots-label"><strong>1 spot remaining</strong> out of 3 total</span>
+  </div>
+
+  <div class="hero-proof">
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      $0 cost for 30 days
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No credit card required
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Full white-glove setup
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No obligation after 30 days
+    </div>
+  </div>
+
+  <!-- Dashboard mockup -->
+  <div class="hero-dashboard">
+    <div class="dashboard-bar">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+      <span style="margin-left:12px;font-size:12px;color:#64748b;font-family:'Inter',sans-serif;">Frontari — Activity Dashboard</span>
+    </div>
+    <div class="dashboard-content">
+      <div class="dash-card">
+        <div class="dash-card-label">Reviews Responded</div>
+        <div class="dash-card-value green">47</div>
+        <div class="dash-card-sub">This month · 100% response rate</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Leads Captured</div>
+        <div class="dash-card-value blue">23</div>
+        <div class="dash-card-sub">Via chat + missed call</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">No-Shows Prevented</div>
+        <div class="dash-card-value">8</div>
+        <div class="dash-card-sub">Auto reminders sent</div>
+      </div>
+      <div class="dash-activity">
+        <div class="dash-activity-title">Live Activity Feed</div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#10b981"></div>
+          <div>
+            <div class="activity-text"><strong>Review responded</strong> — "Thanks so much, Sarah! We're so glad your experience was great. We look forward to seeing you again soon! 🙏"</div>
+            <div class="activity-time">2 minutes ago · Google · 5★</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#3b82f6"></div>
+          <div>
+            <div class="activity-text"><strong>Missed call text-back sent</strong> — "Hey! We missed your call. We'd love to help — what can we do for you?"</div>
+            <div class="activity-time">11 minutes ago · (555) 847-2910</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#f59e0b"></div>
+          <div>
+            <div class="activity-text"><strong>Appointment reminder sent</strong> — "Hi Marcus! Just a reminder about your appointment tomorrow at 2pm. Reply CONFIRM to hold your spot."</div>
+            <div class="activity-time">34 minutes ago · SMS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOGO BAR ─── -->
+<div class="logo-bar">
+  <p>We work with local businesses like these</p>
+  <div class="logo-bar-items">
+    <div class="biz-type">🦷 Dental Offices</div>
+    <div class="biz-type">💆 Med Spas</div>
+    <div class="biz-type">🔧 HVAC Companies</div>
+    <div class="biz-type">✂️ Salons & Barbers</div>
+    <div class="biz-type">🍽️ Restaurants</div>
+    <div class="biz-type">🏠 Contractors</div>
+  </div>
+</div>
+
+<!-- ─── WHAT YOU GET ─── -->
+<section class="section get-section" id="what-you-get">
+  <div class="section-inner">
+    <div class="section-label">What's included — free</div>
+    <h2 class="section-title">Everything. Done for you.<br />For 30 days, at zero cost.</h2>
+    <p class="section-sub">This isn't a watered-down trial. You get the full service — every feature, fully managed by us — at no charge.</p>
+
+    <div class="get-grid">
+      <div class="get-card">
+        <div class="get-icon blue">📱</div>
+        <h3>Missed Call Text-Back</h3>
+        <p>Every missed call gets an instant text-back — written and sent by our AI in your name, within seconds. No more lost leads to voicemail.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon green">⭐</div>
+        <h3>AI Review Responses</h3>
+        <p>Every Google and Yelp review gets a thoughtful, on-brand response — written and posted by us. We train the AI on your voice and your business.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon cyan">💬</div>
+        <h3>24/7 Website Chat</h3>
+        <p>We install and run a smart AI chat widget that answers questions, captures leads, and books appointments — around the clock, without you touching anything.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon purple">📅</div>
+        <h3>Appointment Reminders</h3>
+        <p>Automated SMS reminders that go out before every appointment — reducing no-shows by up to 40%. Patients confirm with one reply.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon orange">📍</div>
+        <h3>Google Business Profile Posts</h3>
+        <p>We write and publish 4 GBP posts for you during the 30 days — keeping your profile fresh and your local SEO moving in the right direction.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+      <div class="get-card">
+        <div class="get-icon pink">📊</div>
+        <h3>Results Report</h3>
+        <p>At the end of 30 days, you get a detailed report showing exactly what we did — every review responded to, every lead captured, every no-show prevented.</p>
+        <span class="value-tag">✓ Included Free</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE DEAL ─── -->
+<section class="section deal-section">
+  <div class="section-inner">
+    <div class="section-label" style="color:#93c5fd;">The deal</div>
+    <h2 class="section-title" style="color:white;text-align:center;">Here's exactly what we're asking for.</h2>
+
+    <div class="deal-box">
+      <div class="deal-emoji">🤝</div>
+      <h3>Simple exchange. No strings.</h3>
+      <p>We're a new agency building our track record. We'll do everything for free — in exchange for 3 small things at the end of 30 days.</p>
+
+      <div class="deal-items">
+        <div class="deal-item">
+          <div class="deal-check">✓</div>
+          <div><strong style="color:white;">Honest feedback</strong> — a quick 10-minute call to tell us what worked and what didn't.</div>
+        </div>
+        <div class="deal-item">
+          <div class="deal-check">✓</div>
+          <div><strong style="color:white;">A written testimonial</strong> — only if you're happy with the results. No pressure.</div>
+        </div>
+        <div class="deal-item">
+          <div class="deal-check">✓</div>
+          <div><strong style="color:white;">Permission to share your results</strong> — anonymized metrics we can use as a case study.</div>
+        </div>
+      </div>
+
+      <p style="font-size:15px;">That's it. If you love it and want to continue after 30 days, great — we'll talk. If not, no hard feelings. You walk away with a month of results and we walk away with a case study. Everyone wins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHO WE WANT ─── -->
+<section class="section who-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">Who we're looking for</div>
+    <h2 class="section-title">We're selective. Here's<br />who this is for.</h2>
+    <p class="section-sub" style="margin:0 auto 0;">We only have 3 spots and we want businesses where we can drive real, visible results in 30 days.</p>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-emoji">🦷</div>
+        <h3>Service-based businesses</h3>
+        <p>Dental offices, med spas, salons, HVAC, plumbers, contractors — any business where appointments and reviews matter.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">📍</div>
+        <h3>Local, established presence</h3>
+        <p>You've been in business at least 6 months, have a Google Business Profile, and have real customers leaving reviews.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">📵</div>
+        <h3>Missing leads right now</h3>
+        <p>You're getting missed calls you're not following up on, reviews you're not responding to, or leads going cold overnight.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">🤝</div>
+        <h3>Open to feedback</h3>
+        <p>You're willing to spend 15 minutes on an onboarding call with us and 10 minutes at the end to share what you think.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">⚡</div>
+        <h3>Ready to move fast</h3>
+        <p>This spot is first-come, first-served. We'll be live within 24 hours of your onboarding call.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-emoji">🚫</div>
+        <h3>Not a fit if...</h3>
+        <p>You're a solo freelancer, online-only, or don't have an existing customer base. This program is built for brick-and-mortar local businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title" style="text-align:center;">Apply today.<br />Live within 24 hours.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Apply for a spot</h3>
+        <p>Fill out the short application below. Takes 2 minutes. We review every application personally and respond within 24 hours.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>15-min onboarding call</h3>
+        <p>We hop on a quick call to learn your business — your voice, your FAQs, your services. That's the only time you'll need to spend with us.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>We build everything for you</h3>
+        <p>We connect your Google profile, install your chat widget, and configure your AI. You don't touch a thing. We're live within 24 hours.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>30 days of results</h3>
+        <p>Sit back. We run everything. At the end of 30 days, you get a full results report — and an honest conversation about what's next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROI ─── -->
+<section class="section roi-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">What 30 days looks like</div>
+    <h2 class="section-title">Real numbers.<br />From day one.</h2>
+    <p class="section-sub" style="margin:0 auto;">Here's what most local businesses see within the first 30 days of running a fully managed AI front desk.</p>
+
+    <div class="roi-cards">
+      <div class="roi-card">
+        <div class="roi-number">62%</div>
+        <div class="roi-label">of missed callers don't call back</div>
+        <div class="roi-sub">We text them before they move on</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">40%</div>
+        <div class="roi-label">fewer no-shows with reminders</div>
+        <div class="roi-sub">Every appointment protected</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">100%</div>
+        <div class="roi-label">review response rate</div>
+        <div class="roi-sub">Every review answered within hours</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">24/7</div>
+        <div class="roi-label">lead coverage</div>
+        <div class="roi-sub">Leads captured while you sleep</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="section faq-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions we get asked.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is this actually free? What's the catch?</div>
+        <div class="faq-a">Yes, completely free for 30 days. No credit card, no contract, no obligation. We're a new agency and we want 2–3 businesses we can do great work for and point to as proof. In exchange for the free service, we ask for honest feedback and a testimonial if you're happy. That's the entire deal.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens after 30 days?</div>
+        <div class="faq-a">At the end of your trial, we'll have a short call to go over your results. If you want to continue, we'll talk through options. If not, no pressure — you keep whatever results we drove and walk away with no obligation. We don't auto-charge you anything.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How much time do I need to put in?</div>
+        <div class="faq-a">About 25 minutes total — a 15-minute onboarding call upfront and a 10-minute feedback call at the end. In between, we handle everything. You run your business, we handle your front desk.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will the AI sound like us?</div>
+        <div class="faq-a">Yes. During your onboarding call, we learn your tone, vocabulary, and how you want your business represented. Everything we write and post is trained on your specific voice — not a generic template.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why only 3 spots?</div>
+        <div class="faq-a">Because we're doing this right. We want to give each founding client real attention — not rush through 20 setups. Three clients means we can go deep, drive real results, and build case studies we're proud of.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta" id="apply">
+  <h2>1 spot left.<br />Don't wait on this one.</h2>
+  <p>Apply in 2 minutes. We review every application personally and respond within 24 hours. If you're a fit, you'll be live before the week is out.</p>
+  <a href="#" class="btn-primary">Apply for the Last Free Spot →</a>
+  <div class="final-spots">
+    <strong>2 of 3 spots claimed.</strong> This program closes when the last spot fills.
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">✈️ Frontari</div>
+  <div class="footer-tagline">Done-For-You AI Front Desk for Local Businesses</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Frontari. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
