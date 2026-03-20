@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frontpilot — Your AI Front Desk, 24/7</title>
+  <meta name="description" content="Frontpilot gives local businesses a full-time AI front desk — answering calls, responding to reviews, booking appointments, and texting leads. For less than $15/day." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0a0f1e;
+      --navy2: #111827;
+      --blue: #2563eb;
+      --blue-light: #3b82f6;
+      --cyan: #06b6d4;
+      --green: #10b981;
+      --gray: #6b7280;
+      --gray-light: #f3f4f6;
+      --white: #ffffff;
+      --gradient: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--gradient);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-cta {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(37,99,235,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37,99,235,0.15);
+      border: 1px solid rgba(37,99,235,0.4);
+      color: #93c5fd;
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 78px);
+      font-weight: 900;
+      color: white;
+      line-height: 1.05;
+      max-width: 860px;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+    .hero h1 span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: #94a3b8;
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(37,99,235,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,99,235,0.5); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.14); }
+    .hero-proof {
+      margin-top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-proof-item {
+      color: #64748b;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-proof-item svg { color: var(--green); }
+
+    /* ─── HERO DASHBOARD ─── */
+    .hero-dashboard {
+      margin-top: 64px;
+      max-width: 900px;
+      width: 100%;
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+    }
+    .dashboard-bar {
+      background: #1f2937;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ef4444; }
+    .dot-y { background: #f59e0b; }
+    .dot-g { background: #10b981; }
+    .dashboard-content {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .dash-card {
+      background: #1a2234;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .dash-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    .dash-card-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+    }
+    .dash-card-value.green { color: var(--green); }
+    .dash-card-value.blue { color: var(--blue-light); }
+    .dash-card-sub {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+    .dash-activity {
+      grid-column: 1 / -1;
+      background: #1a2234;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .dash-activity-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .activity-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .activity-text { font-size: 13px; color: #94a3b8; line-height: 1.4; }
+    .activity-text strong { color: white; }
+    .activity-time { font-size: 11px; color: #475569; margin-top: 2px; }
+
+    /* ─── LOGO BAR ─── */
+    .logo-bar {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .logo-bar p {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .logo-bar-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .biz-type {
+      font-size: 15px;
+      font-weight: 600;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── PAIN SECTION ─── */
+    .section { padding: 96px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(30px, 4.5vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .pain-section { background: var(--navy); color: white; }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .pain-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .pain-emoji { font-size: 36px; margin-bottom: 16px; }
+    .pain-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .pain-card p { font-size: 15px; color: #94a3b8; line-height: 1.6; }
+
+    /* ─── FEATURES ─── */
+    .features-section { background: var(--white); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 32px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+    }
+    .feature-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .feature-icon.blue { background: #dbeafe; }
+    .feature-icon.cyan { background: #cffafe; }
+    .feature-icon.green { background: #d1fae5; }
+    .feature-icon.purple { background: #ede9fe; }
+    .feature-icon.orange { background: #ffedd5; }
+    .feature-icon.pink { background: #fce7f3; }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-card p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── HOW IT WORKS ─── */
+    .how-section { background: #f8fafc; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 56px;
+      position: relative;
+    }
+    .step {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--gradient);
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .step p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── COMPARISON ─── */
+    .compare-section { background: var(--white); }
+    .compare-table {
+      margin-top: 56px;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-cell {
+      padding: 18px 24px;
+      font-size: 14px;
+      border-right: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .compare-cell:last-child { border-right: none; }
+    .compare-header {
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .compare-header.highlight { background: var(--blue); }
+    .compare-cell.highlight { background: #eff6ff; font-weight: 600; color: var(--navy); }
+    .compare-cell.gray-cell { color: #94a3b8; }
+    .check { color: var(--green); font-size: 18px; }
+    .cross { color: #ef4444; font-size: 18px; }
+
+    /* ─── PRICING ─── */
+    .pricing-section { background: #f8fafc; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 56px;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .price-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 40px 36px;
+      position: relative;
+    }
+    .price-card.featured {
+      border-color: var(--blue);
+      box-shadow: 0 8px 48px rgba(37,99,235,0.15);
+    }
+    .price-badge {
+      position: absolute;
+      top: -14px; left: 50%; transform: translateX(-50%);
+      background: var(--gradient);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .price-name { font-size: 14px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .price-amount {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .price-amount sup { font-size: 24px; vertical-align: top; margin-top: 8px; }
+    .price-period { font-size: 14px; color: var(--gray); margin-bottom: 6px; }
+    .price-per-day { font-size: 13px; color: var(--blue); font-weight: 600; margin-bottom: 28px; }
+    .price-divider { border: none; border-top: 1px solid #e2e8f0; margin-bottom: 24px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .price-features li { font-size: 15px; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+    .price-features li .check { font-size: 15px; flex-shrink: 0; }
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .price-cta.primary { background: var(--gradient); color: white; box-shadow: 0 4px 16px rgba(37,99,235,0.3); }
+    .price-cta.primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .price-cta.outline { border: 2px solid #e2e8f0; color: var(--navy); }
+    .price-cta.outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ─── TESTIMONIALS ─── */
+    .testi-section { background: var(--navy); }
+    .testi-section .section-title { color: white; }
+    .testi-section .section-sub { color: #94a3b8; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .stars { color: #fbbf24; font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+    .testi-text { font-size: 16px; color: #e2e8f0; line-height: 1.7; margin-bottom: 24px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+    }
+    .testi-name { font-size: 14px; font-weight: 700; color: white; }
+    .testi-biz { font-size: 13px; color: #64748b; }
+
+    /* ─── ROI ─── */
+    .roi-section { background: white; }
+    .roi-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .roi-card {
+      text-align: center;
+      padding: 40px 24px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+    }
+    .roi-number {
+      font-size: 48px;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .roi-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .roi-sub { font-size: 13px; color: var(--gray); }
+
+    /* ─── FAQ ─── */
+    .faq-section { background: #f8fafc; }
+    .faq-list { max-width: 720px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
+    .faq-item {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+    .faq-q { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .faq-a { font-size: 15px; color: var(--gray); line-height: 1.7; }
+
+    /* ─── FINAL CTA ─── */
+    .final-cta {
+      background: var(--navy);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      color: white;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+    .final-cta p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .final-cta .btn-primary { font-size: 18px; padding: 18px 48px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #060b18;
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo { font-size: 20px; font-weight: 800; color: white; margin-bottom: 8px; }
+    .footer-tagline { font-size: 14px; color: #475569; margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: #64748b; text-decoration: none; }
+    .footer-links a:hover { color: white; }
+    .footer-copy { margin-top: 28px; font-size: 13px; color: #374151; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .compare-row { grid-template-columns: 1fr 1fr; }
+      .compare-row .compare-cell:nth-child(3),
+      .compare-row .compare-cell:nth-child(4) { display: none; }
+      .dashboard-content { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; max-width: 320px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.88 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.4a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      Frontpilot
+    </a>
+    <a href="#pricing" class="nav-cta">Get Started Free →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+    AI-powered · Always on · No hiring required
+  </div>
+
+  <h1>Your AI Front Desk,<br /><span>Working 24/7</span></h1>
+
+  <p class="hero-sub">
+    Frontpilot handles your calls, reviews, chats, and follow-ups automatically — so you never miss a lead, a review, or an appointment. For less than $15/day.
+  </p>
+
+  <div class="hero-ctas">
+    <a href="#pricing" class="btn-primary">Start Your Free Trial →</a>
+    <a href="#features" class="btn-ghost">See What It Does</a>
+  </div>
+
+  <div class="hero-proof">
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      No contracts
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Setup in under 1 hour
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      30-day free trial
+    </div>
+    <div class="hero-proof-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Cancel anytime
+    </div>
+  </div>
+
+  <!-- Dashboard mockup -->
+  <div class="hero-dashboard">
+    <div class="dashboard-bar">
+      <div class="dot dot-r"></div>
+      <div class="dot dot-y"></div>
+      <div class="dot dot-g"></div>
+      <span style="margin-left:12px;font-size:12px;color:#64748b;font-family:'Inter',sans-serif;">Frontpilot — Activity Dashboard</span>
+    </div>
+    <div class="dashboard-content">
+      <div class="dash-card">
+        <div class="dash-card-label">Reviews Responded</div>
+        <div class="dash-card-value green">47</div>
+        <div class="dash-card-sub">This month · 100% response rate</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">Leads Captured</div>
+        <div class="dash-card-value blue">23</div>
+        <div class="dash-card-sub">Via chat + missed call</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-label">No-Shows Prevented</div>
+        <div class="dash-card-value">8</div>
+        <div class="dash-card-sub">Auto reminders sent</div>
+      </div>
+      <div class="dash-activity">
+        <div class="dash-activity-title">Live Activity Feed</div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#10b981"></div>
+          <div>
+            <div class="activity-text"><strong>Review responded</strong> — "Thanks so much, Sarah! We're so glad your experience was great. We look forward to seeing you again soon! 🙏"</div>
+            <div class="activity-time">2 minutes ago · Google · 5★</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#3b82f6"></div>
+          <div>
+            <div class="activity-text"><strong>Missed call text-back sent</strong> — "Hey! We missed your call. We'd love to help — what can we do for you?"</div>
+            <div class="activity-time">11 minutes ago · (555) 847-2910</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#f59e0b"></div>
+          <div>
+            <div class="activity-text"><strong>Appointment reminder sent</strong> — "Hi Marcus! Just a reminder about your appointment tomorrow at 2pm. Reply CONFIRM to hold your spot."</div>
+            <div class="activity-time">34 minutes ago · SMS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOGO BAR ─── -->
+<div class="logo-bar">
+  <p>Built for local businesses like yours</p>
+  <div class="logo-bar-items">
+    <div class="biz-type">🦷 Dental Offices</div>
+    <div class="biz-type">💆 Med Spas</div>
+    <div class="biz-type">🔧 HVAC Companies</div>
+    <div class="biz-type">✂️ Salons & Barbers</div>
+    <div class="biz-type">🍽️ Restaurants</div>
+    <div class="biz-type">🏠 Contractors</div>
+  </div>
+</div>
+
+<!-- ─── PAIN ─── -->
+<section class="section pain-section">
+  <div class="section-inner">
+    <div class="section-label">The problem</div>
+    <h2 class="section-title" style="color:white;">Every missed call is<br />a customer you lost.</h2>
+    <p class="section-sub">Your competitors are responding to reviews, answering chats, and following up on leads. You're too busy running your business to do it manually.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-emoji">📵</div>
+        <h3>Missed calls go unanswered</h3>
+        <p>62% of callers who go to voicemail won't call back. They just call your competitor. That's revenue walking out the door every day.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-emoji">⭐</div>
+        <h3>Reviews pile up unresponded</h3>
+        <p>Google ranks businesses higher when they respond to reviews. Your competitors with 200 responses are outranking you — even with fewer stars.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-emoji">😴</div>
+        <h3>Leads arrive at 2am</h3>
+        <p>Website visitors ask questions at all hours. Without a 24/7 response, they move on. The first business to respond wins — every single time.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-emoji">💸</div>
+        <h3>A receptionist costs $2K/month</h3>
+        <p>And they still take weekends, get sick, and miss calls. You're paying for 40 hours. You need 168 hours of coverage. There's a better way.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="section features-section" id="features">
+  <div class="section-inner">
+    <div class="section-label">Everything included</div>
+    <h2 class="section-title">Six things Frontpilot<br />handles for you automatically</h2>
+    <p class="section-sub">Set it up once. Let it run. Your AI front desk never takes a day off.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon blue">📱</div>
+        <h3>Missed Call Text-Back</h3>
+        <p>When you miss a call, Frontpilot instantly texts the caller and starts a conversation. No more lost leads to voicemail. We reconnect within seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green">⭐</div>
+        <h3>AI Review Responses</h3>
+        <p>Every Google and Yelp review gets a thoughtful, on-brand response — automatically. We train the AI on your voice, values, and business. No copy-paste templates.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon cyan">💬</div>
+        <h3>24/7 Website Chat</h3>
+        <p>A smart AI chat widget answers FAQs, captures leads, and books appointments around the clock. Your website becomes a sales machine that works while you sleep.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon purple">📅</div>
+        <h3>Appointment Reminders</h3>
+        <p>Automated SMS and email reminders reduce no-shows by up to 40%. Patients confirm with one tap. You get fewer gaps in your schedule, more revenue.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon orange">📍</div>
+        <h3>Google Business Profile Posts</h3>
+        <p>Weekly GBP posts keep your profile fresh and boost local SEO. Frontpilot writes and publishes them for you — promotions, tips, seasonal content, all done.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon pink">📣</div>
+        <h3>Monthly Promo Blasts</h3>
+        <p>One email or SMS campaign per month to your existing customer list. Reactivate old clients, fill slow weeks, and drive repeat business without lifting a finger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS ─── -->
+<section class="section how-section">
+  <div class="section-inner">
+    <div class="section-label">Simple setup</div>
+    <h2 class="section-title" style="text-align:center;">Up and running<br />in under an hour</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell us about your business</h3>
+        <p>Fill out a simple onboarding form. Business name, services, tone of voice, FAQs. Takes 15 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We configure your AI</h3>
+        <p>We connect your Google profile, set up your chat widget, and train the AI on your business. You don't touch a line of code.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Go live & watch it work</h3>
+        <p>Your AI front desk goes live. Every call, review, and lead handled automatically — 24/7. You get a monthly report showing exactly what it did.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COMPARISON ─── -->
+<section class="section compare-section">
+  <div class="section-inner">
+    <div class="section-label">How we compare</div>
+    <h2 class="section-title">Enterprise power.<br />Small business price.</h2>
+    <p class="section-sub">The big platforms charge $500–2K/month and still make you do the work. We do it for you.</p>
+
+    <div class="compare-table">
+      <div class="compare-row">
+        <div class="compare-cell compare-header" style="color:#94a3b8;background:#0f172a;"></div>
+        <div class="compare-cell compare-header highlight">Frontpilot ✦</div>
+        <div class="compare-cell compare-header">Birdeye / Yext</div>
+        <div class="compare-cell compare-header">Hiring a Receptionist</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">Monthly cost</div>
+        <div class="compare-cell highlight">$297–497/mo</div>
+        <div class="compare-cell gray-cell">$299–$2,000/mo</div>
+        <div class="compare-cell gray-cell">$1,500–2,000/mo</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">Done-for-you</div>
+        <div class="compare-cell highlight"><span class="check">✓</span> Fully managed</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> DIY software</div>
+        <div class="compare-cell gray-cell"><span class="check">✓</span> Yes</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">24/7 availability</div>
+        <div class="compare-cell highlight"><span class="check">✓</span> Always on</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> You manage it</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> Business hours</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">AI review responses</div>
+        <div class="compare-cell highlight"><span class="check">✓</span> Automatic</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> Manual or template</div>
+        <div class="compare-cell gray-cell"><span class="check">✓</span> Yes</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">Missed call text-back</div>
+        <div class="compare-cell highlight"><span class="check">✓</span> Instant</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> Not included</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> No</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell" style="font-weight:600;">Contract required</div>
+        <div class="compare-cell highlight"><span class="check">✓</span> Month to month</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> Annual contracts</div>
+        <div class="compare-cell gray-cell"><span class="cross">✗</span> 2-week notice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ROI ─── -->
+<section class="section roi-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">The math is simple</div>
+    <h2 class="section-title">One extra patient pays<br />for the whole year.</h2>
+    <p class="section-sub" style="margin:0 auto;">For a dental office, one new patient is worth $500–$2,000. Frontpilot costs $16/day. The ROI is obvious.</p>
+
+    <div class="roi-cards">
+      <div class="roi-card">
+        <div class="roi-number">62%</div>
+        <div class="roi-label">of missed callers never call back</div>
+        <div class="roi-sub">Frontpilot texts them back in seconds</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">40%</div>
+        <div class="roi-label">fewer no-shows with reminders</div>
+        <div class="roi-sub">Every appointment protected</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">10×</div>
+        <div class="roi-label">higher lead conversion</div>
+        <div class="roi-sub">Respond in 2 min, not 2 hours</div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-number">$16</div>
+        <div class="roi-label">per day, all-in</div>
+        <div class="roi-sub">Less than a team lunch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="section testi-section">
+  <div class="section-inner">
+    <div class="section-label" style="color:#93c5fd;">What our clients say</div>
+    <h2 class="section-title">Real businesses. Real results.</h2>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"We were getting 20+ Google reviews a month and responding to maybe 3 of them. Now Frontpilot responds to every single one within hours. Our average star rating went up half a point in 60 days."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#2563eb,#06b6d4)">D</div>
+          <div>
+            <div class="testi-name">Dr. Amanda Chen</div>
+            <div class="testi-biz">Valley Dental Group · Phoenix, AZ</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The missed call text-back alone paid for the whole service in the first week. A customer texted back at 11pm on a Saturday and booked a $3,200 HVAC job. That never would have happened before."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#10b981,#06b6d4)">M</div>
+          <div>
+            <div class="testi-name">Mike Ramirez</div>
+            <div class="testi-biz">Comfort Air HVAC · Dallas, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"I was paying a part-time receptionist $1,400/month just to answer questions and send reminders. Frontpilot does all of that, plus things she never had time for. I wish I'd found this two years ago."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">J</div>
+          <div>
+            <div class="testi-name">Jessica Park</div>
+            <div class="testi-biz">Glow Med Spa · Austin, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─── -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">Simple pricing</div>
+    <h2 class="section-title">No hidden fees. No contracts.<br />Cancel anytime.</h2>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount"><sup>$</sup>297</div>
+        <div class="price-period">per month</div>
+        <div class="price-per-day">≈ $9.90/day · Less than two coffees</div>
+        <hr class="price-divider" />
+        <ul class="price-features">
+          <li><span class="check">✓</span> AI review responses (Google & Yelp)</li>
+          <li><span class="check">✓</span> 4 Google Business Profile posts/mo</li>
+          <li><span class="check">✓</span> 24/7 website chat widget</li>
+          <li><span class="check">✓</span> Review generation (post-visit texts)</li>
+          <li><span class="check">✓</span> Monthly performance report</li>
+          <li><span class="check">✓</span> Onboarding + setup included</li>
+        </ul>
+        <a href="#" class="price-cta outline">Start Free Trial</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount"><sup>$</sup>497</div>
+        <div class="price-period">per month</div>
+        <div class="price-per-day">≈ $16.57/day · Less than a part-time hire</div>
+        <hr class="price-divider" />
+        <ul class="price-features">
+          <li><span class="check">✓</span> Everything in Starter, plus:</li>
+          <li><span class="check">✓</span> Missed call text-back (instant AI reply)</li>
+          <li><span class="check">✓</span> Appointment reminders via SMS</li>
+          <li><span class="check">✓</span> Lead speed-to-response (instant follow-up)</li>
+          <li><span class="check">✓</span> Monthly promo email or SMS blast</li>
+          <li><span class="check">✓</span> Priority support</li>
+        </ul>
+        <a href="#" class="price-cta primary">Start Free Trial →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;font-size:14px;color:#94a3b8;">
+      🔒 30-day free trial · No credit card required · Setup in under 1 hour
+    </p>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="section faq-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Questions? We've got answers.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">How does the AI sound? Will it sound robotic?</div>
+        <div class="faq-a">Not at all. During onboarding, we train the AI on your tone, vocabulary, and how you want to be represented. Review responses feel personal and genuine — not like a template. Most businesses can't tell the difference from a human-written reply.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need any technical knowledge to set this up?</div>
+        <div class="faq-a">Zero. We handle everything — connecting your Google account, setting up the chat widget, configuring the SMS system. You fill out a simple form and we do the rest. Most clients are live within the same business day.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if the AI gets something wrong?</div>
+        <div class="faq-a">You get a daily summary of everything Frontpilot did. You can review, edit, or delete any response. For anything sensitive (a complaint or legal matter), we flag it for your attention before responding.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How is this different from GoHighLevel or Birdeye?</div>
+        <div class="faq-a">Those are software platforms — you log in, configure them, and run them yourself. Frontpilot is a fully done-for-you service. You don't manage anything. We handle the setup, the daily operations, and the ongoing optimization. You just see the results.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I cancel anytime?</div>
+        <div class="faq-a">Yes, absolutely. No annual contracts, no cancellation fees. Month-to-month only. We earn your business every month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta">
+  <h2>Your competitor is responding<br />to leads right now. Are you?</h2>
+  <p>Start your 30-day free trial. No credit card. No contract. Just your AI front desk — live and working in under an hour.</p>
+  <a href="#pricing" class="btn-primary">Get Started Free →</a>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-logo">✈️ Frontpilot</div>
+  <div class="footer-tagline">AI Front Desk for Local Businesses</div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 Frontpilot. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
