@@ -514,6 +514,81 @@
     .roi-label { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .roi-sub { font-size: 13px; color: var(--gray); }
 
+    /* ─── FOUNDER ─── */
+    .founder-section { background: var(--navy); color: white; }
+    .founder-section .section-label { color: #06b6d4; }
+    .founder-inner {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      margin-top: 56px;
+    }
+    .founder-photo-wrap {
+      flex-shrink: 0;
+    }
+    .founder-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid transparent;
+      background: var(--gradient) border-box;
+      box-shadow: 0 0 40px rgba(37,99,235,0.4);
+      outline: 3px solid rgba(6,182,212,0.3);
+      outline-offset: 6px;
+    }
+    .founder-content { flex: 1; }
+    .founder-name {
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 4px;
+    }
+    .founder-title {
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 24px;
+    }
+    .founder-bio {
+      font-size: 16px;
+      color: #94a3b8;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      max-width: 620px;
+    }
+    .founder-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .founder-stat-number {
+      font-size: 30px;
+      font-weight: 900;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .founder-stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 768px) {
+      .founder-inner { flex-direction: column; gap: 32px; text-align: center; }
+      .founder-stats { justify-content: center; }
+      .founder-bio { max-width: 100%; }
+    }
+
     /* ─── FAQ ─── */
     .faq-section { background: #f8fafc; }
     .faq-list { max-width: 720px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
@@ -957,6 +1032,37 @@
       <div class="faq-item">
         <div class="faq-q">Can I cancel anytime?</div>
         <div class="faq-a">Yes, absolutely. No annual contracts, no cancellation fees. Month-to-month only. We earn your business every month.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOUNDER ─── -->
+<section class="section founder-section">
+  <div class="section-inner">
+    <div class="section-label">Who's behind Frontari</div>
+    <div class="founder-inner">
+      <div class="founder-photo-wrap">
+        <img src="chris-longo.jpg" alt="Chris Longo" class="founder-photo" />
+      </div>
+      <div class="founder-content">
+        <div class="founder-name">Chris Longo</div>
+        <div class="founder-title">Founder, Frontari</div>
+        <p class="founder-bio">Over the past decade, Chris has built and scaled multiple digital businesses to 8 figures in combined revenue — managing millions in ad spend and building conversion systems across ecommerce, lead gen, and direct response. He knows what it takes to capture a lead, follow up fast, and turn interest into revenue.<br /><br />What he kept seeing was the same problem in local business: owners were losing customers every single day — missed calls, ignored reviews, leads going cold at 9pm — not because they didn't care, but because they were too busy running their business to fix it. Hiring staff wasn't the answer. Learning software wasn't either.<br /><br />So he built Frontari. A fully done-for-you service that handles the front desk work most local businesses can't — automatically, 24/7, without adding headcount or complexity.</p>
+        <div class="founder-stats">
+          <div>
+            <div class="founder-stat-number">$30M+</div>
+            <div class="founder-stat-label">In revenue &amp; sales built</div>
+          </div>
+          <div>
+            <div class="founder-stat-number">10+ years</div>
+            <div class="founder-stat-label">Digital growth experience</div>
+          </div>
+          <div>
+            <div class="founder-stat-number">Done-for-you</div>
+            <div class="founder-stat-label">Built for owners who don't have time</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
