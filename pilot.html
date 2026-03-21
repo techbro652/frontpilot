@@ -589,6 +589,55 @@
       margin: 0 auto 40px;
     }
     .final-cta .btn-primary { font-size: 18px; padding: 20px 52px; }
+    .cta-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-form input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-form input::placeholder { color: #64748b; }
+    .cta-form input:focus { border-color: var(--cyan); }
+    .cta-form button {
+      width: 100%;
+      padding: 18px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cta-form button:hover { opacity: 0.9; transform: translateY(-1px); }
+    .cta-success {
+      display: none;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      color: #34d399;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .cta-fine { font-size: 13px; color: #475569; text-align: center; margin-top: 4px; }
     .final-spots {
       margin-top: 24px;
       font-size: 14px;
@@ -1030,9 +1079,18 @@
 <!-- ─── FINAL CTA ─── -->
 <section class="final-cta" id="apply">
   <h2>1 spot left.<br />Don't wait on this one.</h2>
-  <p>Apply in 2 minutes. We review every application personally and respond within 24 hours. If you're a fit, you'll be live before the week is out.</p>
-  <a href="#" class="btn-primary">Apply for the Last Free Spot →</a>
-  <div class="final-spots">
+  <p>Enter your info below — we review every application personally and respond within 24 hours. If you're a fit, you'll be live before the week is out.</p>
+  <form class="cta-form" name="frontari-pilot" netlify netlify-honeypot="bot-field" id="ctaForm">
+    <input type="hidden" name="form-name" value="frontari-pilot" />
+    <p style="display:none;"><input name="bot-field" /></p>
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Email address" required />
+    <input type="tel" name="phone" placeholder="Phone number" required />
+    <button type="submit">Claim the Last Free Spot →</button>
+    <p class="cta-fine">No credit card. No contract. Live within 24 hours.</p>
+  </form>
+  <div class="cta-success" id="ctaSuccess">✅ Application received! We'll be in touch within 24 hours.</div>
+  <div class="final-spots" style="margin-top:24px;">
     <strong>2 of 3 spots claimed.</strong> This program closes when the last spot fills.
   </div>
 </section>
@@ -1049,5 +1107,21 @@
   <div class="footer-copy">© 2026 Frontari. All rights reserved.</div>
 </footer>
 
+<script>
+  document.getElementById('ctaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(() => {
+      form.style.display = 'none';
+      document.getElementById('ctaSuccess').style.display = 'block';
+    }).catch(() => {
+      form.submit();
+    });
+  });
+</script>
 </body>
 </html>

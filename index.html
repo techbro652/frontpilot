@@ -633,6 +633,60 @@
       margin: 0 auto 40px;
     }
     .final-cta .btn-primary { font-size: 18px; padding: 18px 48px; }
+    .cta-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-form input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.06);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .cta-form input::placeholder { color: #64748b; }
+    .cta-form input:focus { border-color: var(--cyan); }
+    .cta-form button {
+      width: 100%;
+      padding: 18px;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cta-form button:hover { opacity: 0.9; transform: translateY(-1px); }
+    .cta-success {
+      display: none;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 12px;
+      padding: 20px;
+      color: #34d399;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .cta-fine {
+      font-size: 13px;
+      color: #475569;
+      text-align: center;
+      margin-top: 4px;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -1071,8 +1125,17 @@
 <!-- ─── FINAL CTA ─── -->
 <section class="final-cta" id="contact">
   <h2>Ready to hand off<br />your front desk?</h2>
-  <p>Book a free 15-minute call. We'll walk you through exactly how Frontari works for your business — and get you live within 24 hours.</p>
-  <a href="#" class="btn-primary">Book a Free Call →</a>
+  <p>Enter your info below — we'll reach out within a few hours to walk you through exactly how Frontari works for your business.</p>
+  <form class="cta-form" name="frontari-contact" netlify netlify-honeypot="bot-field" id="ctaForm">
+    <input type="hidden" name="form-name" value="frontari-contact" />
+    <p style="display:none;"><input name="bot-field" /></p>
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Email address" required />
+    <input type="tel" name="phone" placeholder="Phone number" required />
+    <button type="submit">Get Started — It's Free →</button>
+    <p class="cta-fine">No contracts. No credit card. Live within 24 hours.</p>
+  </form>
+  <div class="cta-success" id="ctaSuccess">✅ Got it! We'll be in touch within a few hours.</div>
 </section>
 
 <!-- ─── FOOTER ─── -->
@@ -1087,5 +1150,21 @@
   <div class="footer-copy">© 2026 Frontari. All rights reserved.</div>
 </footer>
 
+<script>
+  document.getElementById('ctaForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(() => {
+      form.style.display = 'none';
+      document.getElementById('ctaSuccess').style.display = 'block';
+    }).catch(() => {
+      form.submit();
+    });
+  });
+</script>
 </body>
 </html>
